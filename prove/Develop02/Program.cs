@@ -28,7 +28,7 @@ class Program
                     Console.WriteLine(prompts[randomPrompt]);
                     Console.Write("> ");
                     string response = Console.ReadLine();
-                    Journal.Entry curEntry = new Journal.Entry(DateTime.Now.ToString("MM/dd/yyyy"), prompts[randomPrompt], response);
+                    Journal.Entry curEntry = new Journal.Entry(DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"), prompts[randomPrompt], response);
                     entries.Add(curEntry);
                     break;
                 case 2:
