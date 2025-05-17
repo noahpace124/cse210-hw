@@ -14,6 +14,7 @@ public class Journal
 
     public void Run()
     {
+        Load();
         while (true)
         {
             Console.WriteLine("Please select one of the following choices:");
@@ -41,6 +42,7 @@ public class Journal
                     Save();
                     break;
                 case 5:
+                    Save();
                     return;
                 default:
                     break;
@@ -74,9 +76,7 @@ public class Journal
 
     public void Save()
     {
-        Console.WriteLine("What is the filename?");
-        string filename = Console.ReadLine();
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        using (StreamWriter outputFile = new StreamWriter("journal.txt"))
         {
             foreach (Entry entry in _entries)
             {
@@ -87,10 +87,7 @@ public class Journal
 
     public void Load()
     {
-        Console.WriteLine("What is the filename?");
-        string filename = Console.ReadLine();
-        
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        string[] lines = System.IO.File.ReadAllLines("journal.txt");
 
         foreach (string line in lines)
         {
